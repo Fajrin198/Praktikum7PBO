@@ -45,11 +45,12 @@ public class Tester {
                     System.out.println("CORRECT");
                 } else {
                     System.out.println("RESULT : ");
-                    System.out.println("OUTPUT TIDAK SESUAI");
                     System.out.println("-----------------------------");
+                    System.out.println("Program Berhasil");
                     System.out.println(outputTesting);
+                    System.out.println("");
                     System.out.println("-----------------------------");
-                    System.out.println("WRONG ANSWER");
+                    System.err.println("TIDAK VALID: Ou");
                 }
             }
         } catch (Exception e) {
@@ -64,7 +65,9 @@ public class Tester {
         while ((line = br.readLine()) != null) {
             sb.append(line + "\n");
         }
-        return sb.toString();
+        String teks = sb.toString();
+        Path file = Files.writeString(Path.of("src/PraktikumNomor4/output.txt"), sb);
+        return teks;
     }
 
     static String ExtractError(Process process) throws IOException {
